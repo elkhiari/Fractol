@@ -6,11 +6,25 @@
 /*   By: oelkhiar <oelkhiar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 13:14:15 by oelkhiar          #+#    #+#             */
-/*   Updated: 2023/07/18 14:45:50 by oelkhiar         ###   ########.fr       */
+/*   Updated: 2023/07/19 15:57:35 by oelkhiar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+void	check_fractal (t_var *data, char *string)
+{
+	if ((ft_strncmp(string,"Julia",5) || ft_strncmp(string,"julia",5)) && ft_strlen(string) == 5)
+	{
+		make_julia_wind(data);
+	}
+	else if((ft_strncmp(string,"mandelbrot",10) || ft_strncmp(string,"Mandelbrot",10)) && ft_strlen(string) == 10)
+	{
+		make_mandelbrot_wind(data);
+	}
+	else 
+		put_Error();
+}
 
 int	main(int ac, char **av)
 {
@@ -18,14 +32,8 @@ int	main(int ac, char **av)
 
 	if (ac == 2)
 	{
-		data.mlx = mlx_init();
-		data.mlx_wind = mlx_new_window(data.mlx, WITH, HEIGHT, av[1]);
-		data.mlx_img = mlx_new_image(&data.mlx, WITH, HEIGHT);
-		data.addr = mlx_get_data_addr(data.mlx, &data.bits_per_pixel,
-				&data.line_lenght, &data.endiand);
-		printf("%s", av[1]);
-		mlx_loop(data.mlx);
+		check_fractal(&data, av[1]);
 	}
 	else
-		write(1, "ERROR", 5);
+		put_Error();
 }
