@@ -6,7 +6,7 @@
 #    By: oelkhiar <oelkhiar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/18 14:31:29 by oelkhiar          #+#    #+#              #
-#    Updated: 2023/07/19 15:51:53 by oelkhiar         ###   ########.fr        #
+#    Updated: 2023/07/20 15:48:55 by oelkhiar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ OBJS = $(SRCS:.c=.o)
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 
 MLX = -lmlx -framework OpenGL -framework AppKit
 
