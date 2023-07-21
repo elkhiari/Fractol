@@ -6,7 +6,7 @@
 /*   By: oelkhiar <oelkhiar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 15:32:39 by oelkhiar          #+#    #+#             */
-/*   Updated: 2023/07/21 15:50:45 by oelkhiar         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:05:41 by oelkhiar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ void	make_julia_wind(void)
 
 	ft_wind_prot(&data);
 	data.id = 1;
+	data.zoom = 4.0 / WIDTH;
+	data.new_color = 0;
+	data.enable_z = 1;
 	ft_hooks(&data);
 	make_julia(&data);
 	mlx_loop(data.mlx);
@@ -28,8 +31,8 @@ void	make_julia(t_var *data)
 {
 	int		x;
 	int		y;
-	double	c_img;
-	double	c_real;
+	double	z_img;
+	double	z_real;
 	int		iterations;
 
 	ft_img_prot(data);
@@ -39,9 +42,9 @@ void	make_julia(t_var *data)
 		x = 0;
 		while (x < WIDTH)
 		{
-			c_real = (x - WIDTH / 2.0 + data->off_x) * data->zoom;
-			c_img = (y - HEIGHT / 2.0 + data->off_y) * data->zoom;
-			iterations = julia(c_real, c_img);
+			z_real = (x - WIDTH / 2.0 + data->off_x) * data->zoom;
+			z_img = (y - HEIGHT / 2.0 + data->off_y) * data->zoom;
+			iterations = julia(z_real, z_img, data);
 			put_pixel(iterations, x, y, data);
 			x++;
 		}
@@ -50,21 +53,23 @@ void	make_julia(t_var *data)
 	mlx_put_image_to_window(data->mlx, data->mlx_wind, data->mlx_img, 0, 0);
 }
 
-int	julia(double c_real, double c_img)
+int	julia(double z_real, double z_img, t_var *data)
 {
-	double	zn_real;
-	double	zn_img;
-	double	z_real;
-	double	z_img;
+	double	cn_real;
+	double	cn_img;
+	double	c_real;
+	double	c_img;
 	int		iterations;
 
+	c_real = data->const_real;
+	c_img = data->const_img;
 	iterations = 1;
 	while (iterations <= MAX_ITER && (z_real * z_real + z_img * z_img <= 4))
 	{
-		zn_real = z_real * z_real - z_img * z_img + c_real;
-		zn_img = 2 * z_real * z_img + c_img;
-		z_real = zn_real;
-		z_img = zn_img;
+		cn_real = z_real * z_real - z_img * z_img  + c_real ;
+		cn_img = 2 * z_real * z_img + c_img;
+		z_real = cn_real;
+		z_img = cn_img;
 		iterations++;
 	}
 	return (iterations);
