@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   mandelbrot_protection.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oelkhiar <oelkhiar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/18 13:14:15 by oelkhiar          #+#    #+#             */
-/*   Updated: 2023/07/21 15:16:47 by oelkhiar         ###   ########.fr       */
+/*   Created: 2023/07/21 14:24:07 by oelkhiar          #+#    #+#             */
+/*   Updated: 2023/07/21 16:04:26 by oelkhiar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	check_fractal (char *string)
-{
-	if ((ft_strncmp(string,"Julia",5) || ft_strncmp(string,"julia",5)) && ft_strlen(string) == 5)
-		make_julia_wind();
-	else if((ft_strncmp(string,"mandelbrot",10) || ft_strncmp(string,"Mandelbrot",10)) && ft_strlen(string) == 10)
-		make_mandelbrot_wind();
-	else 
-		put_Error();
+void    ft_img_prot(t_var *data)
+{    
+    data->mlx_img = mlx_new_image(data->mlx,WIDTH,HEIGHT);
+    if (!data->mlx_img)
+        exit(1);
+	data->addr = mlx_get_data_addr(data->mlx_img,&data->bits_per_pixel,&data->line_lenght,&data->endiand);
+    if (!data->addr)
+        exit(1);
 }
 
-int	main(int ac, char **av)
+void    ft_wind_prot(t_var *data)
 {
-	if (ac == 2)
-	{
-		check_fractal(av[1]);
-	}
-	else
-		put_Error();
+    data->mlx = mlx_init();
+	data->mlx_wind = mlx_new_window(data->mlx, WIDTH, HEIGHT, "");
 }

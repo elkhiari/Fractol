@@ -6,7 +6,7 @@
 /*   By: oelkhiar <oelkhiar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 13:14:22 by oelkhiar          #+#    #+#             */
-/*   Updated: 2023/07/20 17:16:25 by oelkhiar         ###   ########.fr       */
+/*   Updated: 2023/07/21 16:01:18 by oelkhiar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,13 @@ typedef struct s_var
 	int		line_lenght;
 	int		endiand;
 	double	zoom;
-	double	j_constant_real;
-	double	j_constant_imag;
-	int		enable_zoom;
-	int		color_changed;
+	double	const_real;
+	double	const_img;
+	int		enable_z;
+	int		new_color;
 	double	off_x;
 	double	off_y;
+	int		id;
 }				t_var;
 
 void	my_mlx_pixel_put(t_var *var, int x, int y, int color);
@@ -48,10 +49,18 @@ void	put_Error(void);
 void	make_julia_wind();
 void	put_pixel(int iterations, int x, int y, t_var *data);
 int		give_trgb (int t, int r, int g, int b);
-int		mandelbort(double Creal, double Cimg);
-void	make_mandelbort(t_var *data);
-void	ft_hooks(t_var *data);
+int		mandelbrot(double Creal, double Cimg);
+void	make_mandelbrot(t_var *data);
 void    make_mandelbrot_wind();
-int mouse_hook(int button, int x, int y, t_var *data);
+int		julia(double Creal, double Cimg);
+void	make_julia(t_var *data);
+void    make_julia_wind();
+void 	ft_img_prot(t_var *data);
+void    ft_wind_prot(t_var *data);
+int		mouse_down(int button, int x, int y, t_var *data);
+int		close_window(t_var *data);
+int		key_press(int keycode, t_var *data);
+void    ft_hooks(t_var *data);
+int		mouse_point(int x, int y, t_var *data);
 
 #endif

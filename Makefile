@@ -6,7 +6,7 @@
 #    By: oelkhiar <oelkhiar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/18 14:31:29 by oelkhiar          #+#    #+#              #
-#    Updated: 2023/07/20 15:48:55 by oelkhiar         ###   ########.fr        #
+#    Updated: 2023/07/21 15:13:03 by oelkhiar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,9 @@ NAME = fractol
 SRCS = 	main.c \
 		assets.c \
 		julia.c \
-		mandelbrot.c
+		mandelbrot.c \
+		mandelbrot_protection.c \
+		hooks.c
 
 OBJS = $(SRCS:.c=.o)
 

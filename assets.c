@@ -57,9 +57,14 @@ void	put_pixel(int iterations, int x, int y, t_var *data)
 
 	color = (iterations * 255 / MAX_ITER);
 	if (iterations >= MAX_ITER)
-		my_mlx_pixel_put(data,x,y,0x000000);
+		my_mlx_pixel_put(data,x,y,0);
 	else
-		my_mlx_pixel_put(data,x,y,give_trgb(0, color + 40, color - 40, color));
+	{
+		if(data->new_color % 2 == 0)
+			my_mlx_pixel_put(data,x,y,give_trgb(0, color+20, color-10, color+10));
+		else
+			my_mlx_pixel_put(data,x,y,give_trgb(0, color-10, color+20, color-10));
+	}
 }
 
 int give_trgb (int t, int r, int g, int b)
