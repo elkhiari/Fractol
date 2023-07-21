@@ -13,6 +13,8 @@ int	mouse_down(int button, int x, int y, t_var *data)
         make_mandelbrot(data);
 	else if (data->id == 1)
         make_julia(data);
+    if(data->id == 2)
+        make_burnningship(data);
     return (0);
 }
 
@@ -50,6 +52,8 @@ int key_press(int keycode, t_var *data)
         make_mandelbrot(data);
     if(data->id == 1)
         make_julia(data);
+    if(data->id == 2)
+        make_burnningship(data);
     return (0);
 }
 

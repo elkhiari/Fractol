@@ -6,7 +6,7 @@
 /*   By: oelkhiar <oelkhiar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 13:14:22 by oelkhiar          #+#    #+#             */
-/*   Updated: 2023/07/21 16:42:45 by oelkhiar         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:08:26 by oelkhiar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,10 @@ int		give_trgb (int t, int r, int g, int b);
 int		mandelbrot(double Creal, double Cimg);
 void	make_mandelbrot(t_var *data);
 void    make_mandelbrot_wind();
-int	julia(double z_real, double z_img, t_var *data);
+int		burnningship(double Creal, double Cimg);
+void	make_burnningship(t_var *data);
+void    make_burnningship_wind();
+int		julia(double z_real, double z_img, t_var *data);
 void	make_julia(t_var *data);
 void    make_julia_wind();
 void 	ft_img_prot(t_var *data);

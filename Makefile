@@ -6,7 +6,7 @@
 #    By: oelkhiar <oelkhiar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/18 14:31:29 by oelkhiar          #+#    #+#              #
-#    Updated: 2023/07/21 15:13:03 by oelkhiar         ###   ########.fr        #
+#    Updated: 2023/07/21 17:11:21 by oelkhiar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ SRCS = 	main.c \
 		julia.c \
 		mandelbrot.c \
 		mandelbrot_protection.c \
-		hooks.c
+		hooks.c \
+		burnningship.c
 
 OBJS = $(SRCS:.c=.o)
 

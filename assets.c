@@ -6,7 +6,7 @@
 /*   By: oelkhiar <oelkhiar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 13:14:19 by oelkhiar          #+#    #+#             */
-/*   Updated: 2023/07/20 17:00:47 by oelkhiar         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:23:20 by oelkhiar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	my_mlx_pixel_put(t_var *data, int x, int y, int color)
 	dst = data->addr + (y * data->line_lenght + x * (data->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }
+
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t			i;
