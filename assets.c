@@ -6,7 +6,7 @@
 /*   By: oelkhiar <oelkhiar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 13:14:19 by oelkhiar          #+#    #+#             */
-/*   Updated: 2023/07/22 07:45:19 by oelkhiar         ###   ########.fr       */
+/*   Updated: 2023/07/22 08:20:51 by oelkhiar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,14 @@ void	my_mlx_pixel_put(t_var *data, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strcmp(char *s1, char *s2)
 {
-	size_t			i;
-	unsigned char	*x;
-	unsigned char	*y;
+	int	i;
 
-	x = (unsigned char *)s1;
-	y = (unsigned char *)s2;
 	i = 0;
-	if (n == 0)
-		return (0);
-	while (x[i] && y[i] && x[i] == y[i] && i < n - 1)
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
 		i++;
-	return (x[i] - y[i]);
+	return (s1[i] - s2[i]);
 }
 
 size_t	ft_strlen(const char *str)

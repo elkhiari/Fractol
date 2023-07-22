@@ -6,7 +6,7 @@
 /*   By: oelkhiar <oelkhiar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 13:14:22 by oelkhiar          #+#    #+#             */
-/*   Updated: 2023/07/22 08:03:34 by oelkhiar         ###   ########.fr       */
+/*   Updated: 2023/07/22 08:21:22 by oelkhiar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct s_var
 
 void	my_mlx_pixel_put(t_var *var, int x, int y, int color);
 size_t	ft_strlen(const char *str);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strcmp(char *s1, char *s2);
 void	make_julia_wind(void);
 void	put_pixel(int iterations, int x, int y, t_var *data);
 int		give_trgb(int t, int r, int g, int b);
