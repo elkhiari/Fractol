@@ -6,7 +6,7 @@
 #    By: oelkhiar <oelkhiar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/18 14:31:29 by oelkhiar          #+#    #+#              #
-#    Updated: 2023/07/21 17:11:21 by oelkhiar         ###   ########.fr        #
+#    Updated: 2023/07/22 07:50:55 by oelkhiar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCS = 	main.c \
 		assets.c \
 		julia.c \
 		mandelbrot.c \
-		mandelbrot_protection.c \
+		protection.c \
 		hooks.c \
 		burnningship.c
 
@@ -24,7 +24,7 @@ OBJS = $(SRCS:.c=.o)
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
 
 MLX = -lmlx -framework OpenGL -framework AppKit
 

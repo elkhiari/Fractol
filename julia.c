@@ -6,10 +6,9 @@
 /*   By: oelkhiar <oelkhiar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 15:32:39 by oelkhiar          #+#    #+#             */
-/*   Updated: 2023/07/21 17:05:41 by oelkhiar         ###   ########.fr       */
+/*   Updated: 2023/07/22 07:50:30 by oelkhiar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "fractol.h"
 
@@ -66,7 +65,7 @@ int	julia(double z_real, double z_img, t_var *data)
 	iterations = 1;
 	while (iterations <= MAX_ITER && (z_real * z_real + z_img * z_img <= 4))
 	{
-		cn_real = z_real * z_real - z_img * z_img  + c_real ;
+		cn_real = z_real * z_real - z_img * z_img + c_real ;
 		cn_img = 2 * z_real * z_img + c_img;
 		z_real = cn_real;
 		z_img = cn_img;

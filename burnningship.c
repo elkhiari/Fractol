@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   burnningship.c                                       :+:      :+:    :+:   */
+/*   burnningship.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oelkhiar <oelkhiar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 14:56:19 by oelkhiar          #+#    #+#             */
-/*   Updated: 2023/07/21 16:04:43 by oelkhiar         ###   ########.fr       */
+/*   Updated: 2023/07/22 07:39:33 by oelkhiar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	burnningship(double c_real, double c_img)
 	while (iterations <= MAX_ITER && (z_real * z_real + z_img * z_img <= 4))
 	{
 		zn_real = z_real * z_real - z_img * z_img + c_real;
-		zn_img = fabs( 2 * z_real * z_img) + c_img;
+		zn_img = fabs(2 * z_real * z_img) + c_img;
 		z_real = zn_real;
 		z_img = zn_img;
 		iterations++;
